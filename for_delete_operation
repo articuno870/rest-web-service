@@ -1,0 +1,61 @@
+
+	private void updateCourseReview(Course courseRequest, Course courseFromDb) {
+		for (Review reviewRequest : courseRequest.getReviews()) {
+			if (Actions.NEW.equals(reviewRequest.getAction())) {
+				reviewRequest.setCourse(courseFromDb);
+				courseFromDb.getReviews().add(reviewRequest);
+			} else if (Actions.UPDATE.equals(reviewRequest.getAction())) {
+				for (Review reviewFromDb : courseFromDb.getReviews()) {
+					long idFromDb = reviewFromDb.getId();
+					long idFromRequest = reviewRequest.getId();
+					if (idFromDb == idFromRequest) {
+						reviewFromDb.setDescription(reviewRequest.getDescription());
+					}
+				}
+			} else if (Actions.DELETE.equals(reviewRequest.getAction())) {
+				List<Review> review0 = new ArrayList<Review>(cou);
+				for (Review reviewFromDb : courseFromDb.getReviews()) {
+					long idFromDb = reviewFromDb.getId();
+					long idFromRequest = reviewRequest.getId();
+					if (idFromDb == idFromRequest) {
+						courseFromDb.removeReview(reviewFromDb);
+						reviewFromDb.setCourse(null);
+						break;
+					}
+				}
+
+			}
+		}
+	}
+	
+	----------------------------------------------------------------------------other approach-------------
+		private void updateCourseReview(Course courseRequest, Course courseFromDb) {
+		for (Review reviewRequest : courseRequest.getReviews()) {
+			if (Actions.NEW.equals(reviewRequest.getAction())) {
+				reviewRequest.setCourse(courseFromDb);
+				courseFromDb.getReviews().add(reviewRequest);
+			} else if (Actions.UPDATE.equals(reviewRequest.getAction())) {
+				for (Review reviewFromDb : courseFromDb.getReviews()) {
+					long idFromDb = reviewFromDb.getId();
+					long idFromRequest = reviewRequest.getId();
+					if (idFromDb == idFromRequest) {
+						reviewFromDb.setDescription(reviewRequest.getDescription());
+					}
+				}
+			} else if (Actions.DELETE.equals(reviewRequest.getAction())) {
+				List<Review> review0 = new ArrayList<Review>(courseFromDb.getReviews());
+				int count = 0;
+				for (Review reviewFromDb : review0) {
+					long idFromDb = reviewFromDb.getId();
+					long idFromRequest = reviewRequest.getId();
+					if (idFromDb == idFromRequest) {
+						courseFromDb.getReviews().remove(count);
+					//	reviewFromDb.setCourse(null);
+					//	break;
+					}
+					count++;
+				}
+
+			}
+		}
+	}
