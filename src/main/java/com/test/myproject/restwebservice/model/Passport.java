@@ -40,6 +40,12 @@ public class Passport {
 	public Passport(String number) {
 		this.number = number;
 	}
+	
+	public Passport(Long id, String number) {
+		super();
+		this.id = id;
+		this.number = number;
+	}
 
 	public String getNumber() {
 		return number;

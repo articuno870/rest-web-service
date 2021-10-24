@@ -16,7 +16,6 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-
 public class Student {
 
 	@Id
@@ -40,6 +39,15 @@ public class Student {
 
 	public Student(String name) {
 		this.name = name;
+	}
+	
+	
+
+	public Student(Long id, String name, Passport passport) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.passport = passport;
 	}
 
 	public String getName() {
