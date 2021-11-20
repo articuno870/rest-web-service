@@ -18,8 +18,18 @@ public class PersonController {
 	PersonService personService;
 
 	@GetMapping("/person")
-	public Person getAllPerson(@RequestParam(name = "id") int id) {
+	public Person getPersonById(@RequestParam(name = "id") int id) {
 		return personService.getById(id);
+	}
+	
+	/**
+	 * dummy just to test aop
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/personWithName")
+	public String getPersonById1(@RequestParam(name = "id") int id,@RequestParam String name) {
+		return id+name;
 	}
 
 	@GetMapping("/persons")
