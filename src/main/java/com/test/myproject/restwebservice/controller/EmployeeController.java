@@ -14,6 +14,12 @@ import com.test.myproject.restwebservice.model.FullTimeEmployee;
 import com.test.myproject.restwebservice.model.PartTimeEmployee;
 import com.test.myproject.restwebservice.service.EmployeeService;
 
+
+/**
+ * this flow is for inheritance strategy
+ * @author abhis
+ *
+ */
 @RestController
 public class EmployeeController {
 

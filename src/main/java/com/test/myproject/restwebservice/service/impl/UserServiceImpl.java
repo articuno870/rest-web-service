@@ -23,6 +23,24 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	PostRepository postRepository;
+	
+	public UserRepository getUserRepository() {
+		return userRepository;
+	}
+
+	public void setUserRepository(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+	
+	
+
+	public PostRepository getPostRepository() {
+		return postRepository;
+	}
+
+	public void setPostRepository(PostRepository postRepository) {
+		this.postRepository = postRepository;
+	}
 
 	/**
 	 * Using query method
@@ -36,7 +54,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	/**
-	 * Using jpa predifined method
+	 * Using jpa predefined method
 	 */
 	@Override
 	public List<User> getAllUser() {
