@@ -58,6 +58,9 @@ public class StudentController {
 	 * To delete passport json Request body: { "id": 20001, "name": "rrrrr",
 	 * "passport": { "action": "DELETE", "number": "PP111", "id": 40001 } }
 	 * 
+	 * To update: { "id": 20001, "name": "rrrrr", "passport": { "action": "UPDATE",
+	 * "number": "PP111", "id": 40001 } }
+	 * 
 	 * @param student
 	 * @return
 	 */

@@ -24,16 +24,40 @@ public class CourseController {
 	}
 
 	@GetMapping(path = "/courseById")
-	//2nd level cache
+	// 2nd level cache
 	public Course getCourseById(@RequestParam("id") long id) {
 		return courseService.getCourseById(id);
 	}
 
+	/**
+	 * To create course: http://localhost:8081/course
+	 * 
+	 * { "name": "aaa", "reviews": [ { "description": "Best till date", "rating":
+	 * "FIVE" }, { "description": "easy explanation", "rating": "FIVE" } ] }
+	 * 
+	 * @param course
+	 * @return
+	 */
 	@PostMapping(path = "/course")
 	public Course saveCourse(@RequestBody Course course) {
 		return courseService.createCourse(course);
 	}
 
+	/**
+	 * Use this link to format: json: http://jsonviewer.stack.hu/
+	 * 
+	 * To update : http://localhost:8081/course/update
+	 * 
+	 * all action at once
+	 * 
+	 * { "id": 10001, "name": "JPA in 2 Steps", "reviews": [ { "description": "bbb
+	 * Course", "action": "NEW" }, { "id": 50001, "description": "bad Course",
+	 * "action": "UPDATE" }, { "id": 50002, "description": "uuuu Course", "action":
+	 * "DELETE" } ] }
+	 * 
+	 * @param course
+	 * @return
+	 */
 	@PostMapping(path = "/course/update")
 	public Course updateCourse(@RequestBody Course course) {
 		return courseService.updateCourse(course);
