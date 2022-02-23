@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 // will directly map to class
 @NamedQuery(name = "get_all_person", query = "select p from Person p")
+//------------------------------------------------
 //named query using sql result set mapping
 @SqlResultSetMapping(name = "id_address_mapper", classes = {
 		@ConstructorResult(targetClass = Person.class, columns = { 
