@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,10 +33,16 @@ public class StudentController {
 
 	@GetMapping("/student")
 	public void check() {
-
 		studentRepository.someOperationToUnderstandPersistenceContext();
 	}
 
+	/**
+	 * To save student http://localhost:8081/students { "name": "aaa",
+	 * "passport":{"number": "12345" } }
+	 * 
+	 * @param student
+	 * @return
+	 */
 	@Operation(summary = "Save single student")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "save the student"),
 			@ApiResponse(responseCode = "404", description = "bad request"), })
@@ -45,16 +52,21 @@ public class StudentController {
 		return studentService.saveStudents(student);
 	}
 
+	/**
+	 * http://localhost:8081/students/update
+	 * 
+	 * To delete passport json Request body: { "id": 20001, "name": "rrrrr",
+	 * "passport": { "action": "DELETE", "number": "PP111", "id": 40001 } }
+	 * 
+	 * @param student
+	 * @return
+	 */
 	@PostMapping("/students/update")
 	public Student updateStudent(@RequestBody Student student) {
 		return studentService.updateStudent(student);
 	}
 
-	@GetMapping(path = "/students"/*
-									 * produces = { MediaType.APPLICATION_XML_VALUE,
-									 * MediaType.APPLICATION_JSON_VALUE }
-									 */
-	)
+	@GetMapping(path = "/students", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
 	public List<Student> getAllStudents() {
 		return studentService.getAllStudents();
 	}

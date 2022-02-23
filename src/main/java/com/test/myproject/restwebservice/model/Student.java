@@ -26,22 +26,23 @@ public class Student {
 	@Column(name = "NAME", nullable = false)
 	private String name;
 
-	// orphan removal must be in owning side, means student wants to disconnect
+	// orphan removal must be in owning side(owning side means where we keep foreign
+	// id in this case foreign id generated in student table i.e course id so that's
+	// why student is owning side similarly in Course pojo class also review is
+	// owning side), means student wants to disconnect
 	// relationship with passport so as soon as the passport doesn't have parent,
 	// then it will automatically will be deleted, once passport is set as
 	// null in student object, same for vice - versa
 	@OneToOne(fetch = FetchType.LAZY, cascade = { CascadeType.ALL }, orphanRemoval = true)
 	@JoinColumn(name = "PASSPORT_ID", referencedColumnName = "ID")
 	private Passport passport;
-	
+
 	protected Student() {
 	}
 
 	public Student(String name) {
 		this.name = name;
 	}
-	
-	
 
 	public Student(Long id, String name, Passport passport) {
 		super();

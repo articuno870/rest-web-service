@@ -12,6 +12,7 @@ import com.test.myproject.restwebservice.model.Passport;
 import com.test.myproject.restwebservice.model.Student;
 import com.test.myproject.restwebservice.service.StudentService;
 import com.test.myproject.restwebservice.utility.Actions;
+
 @Service
 @Transactional
 public class StudentServiceImpl implements StudentService {
@@ -19,9 +20,11 @@ public class StudentServiceImpl implements StudentService {
 	@Autowired
 	StudentRepo studentRepo;
 
-
 	@Override
 	public Student saveStudents(Student student) {
+		// in one to one mapping, its optional to set parent in child
+		// so below line is optional i.e setting student in passport
+		// student.getPassport().setStudent(student);
 		Student savedStudent = studentRepo.save(student);
 		return savedStudent;
 	}
@@ -39,7 +42,6 @@ public class StudentServiceImpl implements StudentService {
 		} else if (Actions.DELETE.equals(studentRequest.getPassport().getAction())) {
 			deletePassport(studentRequest, studentFromDb);
 		}
-
 		studentRepo.save(studentFromDb);
 		return null;
 	}
@@ -49,9 +51,10 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	// delete passport, in this case passport will automatically will get deleted
-	// from table
+	// from table(as orphan removal is set in student class)
 	private void deletePassport(Student studentRequest, Student studentFromDb) {
 		studentFromDb.setPassport(null);
+		//studentFromDb.getPassport().setStudent(null);
 	}
 
 	// update student
@@ -75,10 +78,10 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public Student getStudentById(long id) {
-		//below line will not work for first level cache
-		//Student student = studentRepo.findStudentById(id);
-		//below line will work for first level cache
-		Student student = studentRepo.findById(id).get();
+		// below line will not work for first level cache
+		Student student = studentRepo.findStudentById(id);
+		// below line will work for first level cache
+		// Student student = studentRepo.findById(id).get();
 		Student student1 = studentRepo.findById(id).get();
 		return student;
 	}

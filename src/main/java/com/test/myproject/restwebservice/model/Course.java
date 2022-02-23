@@ -1,6 +1,5 @@
 package com.test.myproject.restwebservice.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -12,8 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-import org.hibernate.annotations.Cascade;
 
 @Entity
 @Cacheable

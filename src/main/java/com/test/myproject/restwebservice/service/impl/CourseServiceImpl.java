@@ -38,7 +38,6 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	public Course createCourse(Course courseRequest) {
 		for (Review review : courseRequest.getReviews()) {
-			// courseRequest.addReviews(review);
 			// we have to set each child with parent
 			review.setCourse(courseRequest);
 		}
@@ -48,7 +47,6 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	@Transactional
 	public Course updateCourse(Course courseRequest) {
-
 		Course courseFromDb = null;
 		Optional<Course> course0 = courseRepository.findById(courseRequest.getId());
 		if (course0.isPresent())
@@ -102,5 +100,6 @@ public class CourseServiceImpl implements CourseService {
 			}
 		}
 	}
+
 
 }

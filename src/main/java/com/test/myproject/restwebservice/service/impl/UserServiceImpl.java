@@ -24,20 +24,10 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	PostRepository postRepository;
 	
-	public UserRepository getUserRepository() {
-		return userRepository;
-	}
-
 	public void setUserRepository(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 	
-	
-
-	public PostRepository getPostRepository() {
-		return postRepository;
-	}
-
 	public void setPostRepository(PostRepository postRepository) {
 		this.postRepository = postRepository;
 	}

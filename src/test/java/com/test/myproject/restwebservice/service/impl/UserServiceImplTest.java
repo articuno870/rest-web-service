@@ -60,12 +60,15 @@ public class UserServiceImplTest {
 		return users;
 	}
 
-	//mockito throw only run time exception
+	// this test case is for negative scenario
+	// mockito throw only run time exception
 	// make UserNotfoundException extends runtime exception then run this method
-	//@Test(expected = UserNotFoundException.class)
+	@Test(expected = UserNotFoundException.class)
 	public void getUserById() throws UserNotFoundException {
 		Mockito.doThrow(new UserNotFoundException("abc")).when(userRepository).findById(Mockito.anyInt());
 		userServiceImpl.getUserById(101);
 	}
+	
+
 
 }

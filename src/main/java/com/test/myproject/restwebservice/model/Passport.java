@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.test.myproject.restwebservice.utility.Actions;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Passport {
 
 	@Id
@@ -31,7 +31,7 @@ public class Passport {
 	private Student student;
 
 	@Transient
-	@JsonIgnore
+//	@JsonIgnore
 	private Actions action;
 
 	protected Passport() {
@@ -40,7 +40,7 @@ public class Passport {
 	public Passport(String number) {
 		this.number = number;
 	}
-	
+
 	public Passport(Long id, String number) {
 		super();
 		this.id = id;

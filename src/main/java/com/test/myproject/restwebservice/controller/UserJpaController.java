@@ -2,8 +2,6 @@ package com.test.myproject.restwebservice.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.test.myproject.restwebservice.exception.UserNotFoundException;
 import com.test.myproject.restwebservice.model.Post;
 import com.test.myproject.restwebservice.model.User;
-import com.test.myproject.restwebservice.repo.UserDaoService;
 import com.test.myproject.restwebservice.service.UserService;
 
 @RestController
@@ -53,10 +50,10 @@ public class UserJpaController {
 			// exception.
 
 			// it is mandatory to use throw and throws together in case of checked
-			// exception.
+			// exception.(When custom exception is extending Exception class)
 
 			// but in case of runtime exception no need to use throws at the end it will go
-			// to controller advice only.
+			// to controller advice only.(when custom exception is extending RuntimeException class)
 
 			// throw new RuntimeException();
 			throw e;
