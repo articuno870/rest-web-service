@@ -23,7 +23,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @NamedNativeQuery(name = "get_only_id_address", 
 				query = "select p.id, p.home_address from Person p "
-		                 + "where p.id = :personId", resultSetMapping = "id_address_mapper")
+		                 + "where p.id = :personId", 
+		        resultSetMapping = "id_address_mapper")
 @Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Person {

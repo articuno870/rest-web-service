@@ -37,6 +37,10 @@ public class PersonRepository {
 		return person;
 	}
 
+	/**
+	 * using sql native query
+	 * @return
+	 */
 	public List<Person> findAllByNativeSqlQuery() {
 		Query query = entityManager.createNativeQuery("Select * from Person", Person.class);
 		List<Person> personList = query.getResultList();

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 @Entity
 public class PartTimeEmployee extends Employee {
 
+	private BigDecimal hourlyWage;
+
 	protected PartTimeEmployee() {
 		super();
 	}
@@ -16,7 +18,6 @@ public class PartTimeEmployee extends Employee {
 		this.hourlyWage = hourlyWage;
 	}
 
-	private BigDecimal hourlyWage;
 
 	public BigDecimal getHourlyWage() {
 		return hourlyWage;

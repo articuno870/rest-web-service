@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "b4f952ba-8fae-465b-8265-850c9f04c25e",
+		"name": "Student",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3629731"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8081/course",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/course",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"course"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/students/update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 20001,\r\n    \"name\": \"rrrrr\",\r\n    \"passport\": {\r\n        \"action\": \"DELETE\",\r\n        \"number\": \"PP111\",\r\n        \"id\": 40001\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/students/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"students",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/students",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 20004,\r\n    \"name\": \"bbb\",\r\n    \"passport\": {\r\n        \"number\": \"AAA111\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/courseById?id=10001",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/courseById?id=10001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"courseById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "10001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/course",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"aaa\",\r\n    \"reviews\": [\r\n        {\r\n            \"description\": \"Best till date\",\r\n            \"rating\": \"FIVE\"\r\n        },\r\n        {\r\n            \"description\": \"easy explanation\",\r\n            \"rating\": \"FIVE\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/course",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"course"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new review in existing course",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 10001,\r\n    \"name\": \"JPA in 12 Steps\",\r\n    \"reviews\": [\r\n        {\r\n            \"description\": \"bbb Course\",\r\n            \"action\": \"NEW\"\r\n        },\r\n                {\r\n            \"description\": \"kkk Course\",\r\n            \"action\": \"NEW\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/course/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"course",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/course/update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 10001,\r\n    \"name\": \"JPA in 2 Steps\",\r\n    \"reviews\": [\r\n                {\r\n            \"description\": \"bbb Course\",\r\n            \"action\": \"NEW\"\r\n        },\r\n        {\r\n            \"id\": 50001,\r\n            \"description\": \"bad Course\",\r\n            \"action\": \"UPDATE\"\r\n        },\r\n        {\r\n             \"id\": 50002,\r\n            \"description\": \"uuuu Course\",\r\n            \"action\": \"DELETE\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/course/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"course",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete existing review from course",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 10001,\r\n    \"name\": \"JPA in 1 Steps\",\r\n    \"reviews\": [\r\n        {\r\n            \"id\": 50002,\r\n            \"description\": \"bad Course\",\r\n            \"action\": \"DELETE\"\r\n        },\r\n        {\r\n            \"id\": 50001,\r\n            \"description\": \"Great Course-updated\",\r\n            \"action\": \"DELETE\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/course/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"course",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/students/20001",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/students/20001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"students",
+						"20001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/students",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"aaa\",\r\n    \"passport\":{\r\n        \"number\": \"12345\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

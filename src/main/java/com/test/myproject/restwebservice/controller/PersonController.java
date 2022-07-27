@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.test.myproject.restwebservice.model.Person;
 import com.test.myproject.restwebservice.service.PersonService;
 
+/**
+ * This flow is to understand sql native query
+ * @author abhis
+ *
+ */
 @RestController
 public class PersonController {
 

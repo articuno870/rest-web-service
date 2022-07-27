@@ -12,7 +12,7 @@ import com.test.myproject.restwebservice.service.EmployeeService;
 
 @Service
 @Transactional
-public class EmployeeSericeImpl implements EmployeeService {
+public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	EmployeeRepository employeeRepository;
