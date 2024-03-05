@@ -33,7 +33,7 @@ public class PersonController {
 	 * @return
 	 */
 	@GetMapping("/personWithName")
-	public String getPersonById1(@RequestParam(name = "id") int id,@RequestParam String name) {
+	public String getPersonById1(@RequestParam(name = "id") int id,@RequestParam(name="myname") String name) {
 		return id+name;
 	}
 

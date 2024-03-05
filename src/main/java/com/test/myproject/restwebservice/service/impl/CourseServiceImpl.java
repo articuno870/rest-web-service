@@ -32,7 +32,9 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	public Course getCourseById(long id) {
-		return courseRepository.findById(id).get();
+		Course course = courseRepository.findById(id).get();
+		List<Review> review = course.getReviews();
+		return course;
 	}
 
 	@Override
@@ -101,5 +103,11 @@ public class CourseServiceImpl implements CourseService {
 		}
 	}
 
+	@Override
+	public List<Course> getCourseByReview(String review) {
+		// TODO Auto-generated method stub
+		List<Course> course = courseRepository.findCourseByReview(review);
+		return course;
+	}
 
 }

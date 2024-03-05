@@ -28,7 +28,7 @@ public class PersonRepository {
 	}
 
 	/**
-	 * using named query with sql result set mapping, but using jpql only
+	 * using named query with "sql result set mapping", but using jpql only
 	 */
 	public Person findAllIdAndAddress(int id) {
 		TypedQuery<Person> query = entityManager.createNamedQuery("get_only_id_address", Person.class);

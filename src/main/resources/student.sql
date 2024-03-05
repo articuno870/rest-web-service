@@ -26,3 +26,5 @@ insert into review(id,description,course_id)
 values(50002,'Wonderful Course',10001);
 insert into review(id,description,course_id)
 values(50003,'Awesome Course',10003);
+insert into review(id,description,course_id)
+values(50004,'Great Course',10002);

@@ -1,6 +1,8 @@
 package com.test.myproject.restwebservice.model;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,11 +11,14 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 
+/**for mapped super class uncomment below annotation**/
 //@MappedSuperclass
-@Entity
+/** for single table uncomment below annotation **/
 //all table strategy should be given here, and no more changes is required anywhere
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Inheritance(strategy = InheritanceType.JOINED)
+/**@Entity
+@DiscriminatorColumn(name = "employee_type", discriminatorType = DiscriminatorType.INTEGER)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)**/
+//@Inheritance(strategy = InheritanceType.JOINED)
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@MappedSuperclass
 public class Employee {
@@ -41,6 +46,7 @@ public class Employee {
 	}
 
 	public Long getId() {
+		// check id password
 		return id;
 	}
 

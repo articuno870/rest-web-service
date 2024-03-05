@@ -14,5 +14,6 @@ public interface CourseService {
 
 	Course updateCourse(Course course);
 
-	
+	List<Course> getCourseByReview(String review);
+
 }

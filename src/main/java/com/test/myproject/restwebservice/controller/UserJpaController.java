@@ -35,7 +35,7 @@ public class UserJpaController {
 
 	// no need of try catch block
 	@GetMapping("jpa/users/{id}")
-	public User getUserById(@PathVariable int id) throws UserNotFoundException {
+	public User getUserById(@PathVariable int id)  {
 		User user = null;
 		try {
 			user = userService.getUserById(id);

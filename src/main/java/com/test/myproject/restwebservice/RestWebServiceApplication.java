@@ -9,11 +9,14 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication
 @EnableAspectJAutoProxy(proxyTargetClass=true)
 public class RestWebServiceApplication {
+	
+
+	
 	private static Logger logger = LogManager.getLogger();
 	public static void main(String[] args) {
 		
+	//	new RestWebServiceApplication().getPort();
 		SpringApplication.run(RestWebServiceApplication.class, args);
-		
 		
 		System.out.println("hi");
 		logger.debug("This is a debug message");
@@ -24,4 +27,5 @@ public class RestWebServiceApplication {
 		logger.fatal("This is a fatal message");
 		System.out.println("abhishek");
 	}
+	
 }

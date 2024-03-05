@@ -37,7 +37,6 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public List<User> getAllUserUsingQuery() {
-		System.out.println("reached");
 		List<User> user = userRepository.getAllUsers();
 		return user;
 		// return null;
@@ -54,7 +53,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getUserById(int id) throws UserNotFoundException {
+	public User getUserById(int id){
 
 		Optional<User> user = userRepository.findById(id);
 		if (!user.isPresent()) {

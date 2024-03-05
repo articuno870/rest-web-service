@@ -1,6 +1,7 @@
 package com.test.myproject.restwebservice.service.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,6 +10,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -26,6 +30,9 @@ public class UserServiceImplTest {
 
 	PostRepository postRepository;
 
+	@Captor
+	ArgumentCaptor<Integer> idCaptor;
+
 	@Before
 	public void setup() {
 		userServiceImpl = new UserServiceImpl();
@@ -41,7 +48,12 @@ public class UserServiceImplTest {
 	public void deleteUserTest() {
 		Mockito.doNothing().when(userRepository).deleteById(Mockito.anyInt());
 		userServiceImpl.deleteUser(101);
+		
+		verify(userRepository).deleteById(idCaptor.capture());
+		int passedId = idCaptor.getValue();
+		assertEquals(101, passedId);
 		Mockito.verify(userRepository, Mockito.times(1)).deleteById(Mockito.anyInt());
+
 	}
 
 	@Test
@@ -68,7 +80,5 @@ public class UserServiceImplTest {
 		Mockito.doThrow(new UserNotFoundException("abc")).when(userRepository).findById(Mockito.anyInt());
 		userServiceImpl.getUserById(101);
 	}
-	
-
 
 }
