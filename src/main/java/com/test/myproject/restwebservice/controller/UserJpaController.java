@@ -56,6 +56,7 @@ public class UserJpaController {
 			// to controller advice only.(when custom exception is extending RuntimeException class)
 
 			// throw new RuntimeException();
+			//re throwing the exception
 			throw e;
 		}
 		return user;
